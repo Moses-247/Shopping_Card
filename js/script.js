@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       updateTotal();
     }
   
-    // Function to delete item
+    // delete item
     function deleteItem(card) {
       card.remove();
       updateTotal();
@@ -28,20 +28,16 @@ document.addEventListener("DOMContentLoaded", () => {
       heart.classList.toggle("liked");
     }
   
-    // Add event listeners to all cards
     document.querySelectorAll(".card").forEach((card) => {
-      // Event listeners for + and - buttons
       card.querySelector(".fa-plus-circle").addEventListener("click", () => updateQuantity(card, true));
       card.querySelector(".fa-minus-circle").addEventListener("click", () => updateQuantity(card, false));
   
-      // Event listener for delete button
       card.querySelector(".fa-trash-alt").addEventListener("click", () => deleteItem(card));
   
-      // Event listener for like button
       card.querySelector(".fa-heart").addEventListener("click", (event) => toggleLike(event.target));
     });
   
-    // Initial total calculation
+
     updateTotal();
   });
   
